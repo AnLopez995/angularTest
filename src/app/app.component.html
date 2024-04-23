@@ -1,22 +1,63 @@
 
 
-<main class="main">
-  <header class="brand-name">
-    <img class="brand-logo" src="assets/logo.png" alt="logo" aria-hidden="true">
-    <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<main class="flex flex-column h-dvh overflow-x-hidden bg-gray-300">
+
+  <header class="grid w-full justify-content-between align-items-center h-4rem border-2 border-blue-800 p-0 m-0">
+    <div class="border-2 border-green-600">
+      <a routerLink="/">
+        <img class="bg-center bg-no-repeat bg-gray-300 border-round h-2rem pl-3 " src="/assets/logo.png" alt="logo" aria-hidden="true">
+      </a>
+    </div>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="sm:hidden">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <nav class="border-2 border-green-600 sm:block hidden">.
+      <ul class="flex justify-content-center list-none sm:gap-1 xl:gap-6">
+        <li><a routerLink="/" class="no-underline text-900 text-sm font-semibold">Home</a></li>
+        <li><a routerLink="/about" class="no-underline text-900 text-sm font-semibold">About</a></li>
+        <li><a routerLink="/contact" class="no-underline text-900 text-sm font-semibold">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="justify-content-between sm:block hidden">
+      <button routerLink="/login" pButton pRipple aria-label="Login" label="Login" icon="input" class="bg-gray-300 text-900 border-none shadow-3 hover text-sm"></button>
+      <button routerLink="/register" pButton pRipple aria-label="Sing in" label="Sing in" icon="input" class="bg-gray-300 text-900 border-none shadow-3 hover text-sm"></button>
+    </div>
   </header>
-  <section class="content">
-    <app-home></app-home>
-  </section>
+
+  <mat-menu #menu="matMenu" class="">
+    <button mat-menu-item routerLink="/">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-menu-item routerLink="/">
+      <mat-icon>menu_book</mat-icon>
+      <span>About</span>
+    </button>
+    <button mat-menu-item routerLink="/">
+      <mat-icon>support_agent</mat-icon>
+      <span>Contact</span>
+    </button>
+    <button mat-menu-item routerLink="/login">
+      <mat-icon>input</mat-icon>
+      <span>Login</span>
+    </button>
+    <button mat-menu-item routerLink="/register">
+      <mat-icon>app_registration</mat-icon>
+      <span>Register</span>
+    </button>
+  </mat-menu>
+
+  <body class="flex-grow-1 overflow-auto sm:p-0 border-2 border-red-800">
+    <div class="sm:px-0">
+      <router-outlet></router-outlet>
+    </div>
+  </body>
+  <footer class="relative absolute w-full p-0 m-0 h-4rem">
+    <div class="w-full h-full bg-coreColor border-1 flex justify-content-center align-items-center p-0 m-0">
+      <p>&copy; 2024 Avsa SA</p>
+    </div>
+  </footer>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
